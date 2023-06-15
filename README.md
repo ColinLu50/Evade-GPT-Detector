@@ -2,6 +2,8 @@
 
 Source code for paper [*Large Language Models can be Guided to Evade AI-Generated Text Detection*](https://arxiv.org/abs/2305.10847).
 
+## Introduction
+
 We introduce **SICO**, a **S**ubstitution-based **I**n-**C**ontext example **O**ptimization method, 
 which automatically build prompt that guide Large Language Models (LLMs), such as ChatGPT, to generate human-like texts. 
 
