@@ -2,17 +2,10 @@
 
 Source code for paper [*Large Language Models can be Guided to Evade AI-Generated Text Detection*](https://arxiv.org/abs/2305.10847).
 
-We propose a **S**ubstitution-based **I**n-**C**ontext example **O**ptimization method (**SICO**), 
-which automatically build prompt that guides LLM (e.g. ChatGPT) to generate human-like texts. 
+We introduce **SICO**, a **S**ubstitution-based **I**n-**C**ontext example **O**ptimization method, 
+which automatically build prompt that guide Large Language Models (LLMs), such as ChatGPT, to generate human-like texts. 
+
 SICO successfully evades all exisiting AI-generation text detectors, including GPTzero and OpenAI official detector.
-
-
-[//]: # (# Prompt you can use:)
-
-[//]: # ()
-[//]: # (For paraphrasing a text generated from LLM like.)
-
-
 
 
 ## Run SICO
@@ -36,12 +29,11 @@ conda env create -f environment.yml
 - `OpenAI detector`: Set the OpenAI API in environment `export OPENAI_API_KEY={your OpenAI API key}`
 - `ChatGPT detector, GPT2 detector, DetectGPT, Log-Rank`: Required models will be automatically download model from HuggingFace.
 
-## Datasets
+### Datasets
 All datasets we used are listed in `datasets` folder, containing `squad,eli5,yelp`.
 Each subfolder has three tsv files: `eval.tsv` for evaluation during training, `test.tsv` for final test, and `incontext.tsv` for initialization and building in-context examples.
 
-## SICO
-### Training
+### Run training
 
 Run `SICO_train.py` to start training procedure.
 
@@ -84,7 +76,7 @@ python SICO_train.py
 
 After training, the optimized prompt is stored in `./outputs/results/` and training log is stored in `./outputs/logs/`.
 
-### Testing
+### Run testing
 
 Run `SICO_test_gen.py` to use trained-prompt to generate texts, the arguments are the same as `SICO_train.py`.
 Extra parameter `--test-size` show the number of cases you want to test.
@@ -116,3 +108,10 @@ python run_test_detection.py
     --detector detectgpt
 ```
 
+## To-Do List
+Here is our planned roadmap for future developments:
+- [x] **Open Source Code**
+- [ ] **Share Effective Prompts**
+- [ ] **Share Benchmark**
+
+Stay tuned for further updates and developments on these tasks. We encourage community engagement and welcome any form of feedback or contributions to our project.
